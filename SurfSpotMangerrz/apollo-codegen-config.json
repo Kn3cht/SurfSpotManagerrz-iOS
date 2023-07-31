@@ -1,0 +1,43 @@
+{
+  "schemaNamespace" : "SurfSpotManagerrzApi",
+  "schemaDownloadConfiguration": {
+      "downloadMethod": {
+          "introspection": {
+              "endpointURL": "https://surf-spot-managerrz.vercel.app/graphql",
+              "httpMethod": {
+                  "POST": {}
+              },
+              "includeDeprecatedInputValues": false,
+              "outputFormat": "SDL"
+          }
+      },
+      "downloadTimeout": 60,
+      "headers": [],
+      "outputPath": "./backend-schema.graphql"
+  },
+  "input" : {
+    "operationSearchPaths" : [
+      "./graphql/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "./backend-schema.graphql"
+    ]
+  },
+  "output" : {
+    "schemaTypes" : {
+      "path" : "../SurfSpotManagerrzApi",
+      "moduleType" : {
+        "swiftPackageManager" : {}
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    },
+    "testMocks" : {
+          "swiftPackage" : {
+              "targetName": "SurfSpotManagerrzApiMock"
+          }
+     }
+  }
+}

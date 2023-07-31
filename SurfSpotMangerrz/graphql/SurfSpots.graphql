@@ -1,0 +1,19 @@
+fragment CoordinatesFragment on Coordinates {
+    lat
+    lon
+}
+
+fragment SurfSpotFragment on SurfSpot {
+    _id
+    name
+    description
+    coordinates {
+       ...CoordinatesFragment
+    }
+}
+
+query ListSurfSpots {
+    listSurfSpots {
+        ...SurfSpotFragment
+    }
+}
