@@ -13,15 +13,23 @@ struct SurfSpotList: View {
     @StateObject var surfspotViewModel = SurfSpotViewModel()
     @State var query: String = ""
     
+    var filteredSurfSpots: [SurfSpotFragment] {
+        if query.isEmpty {
+            return surfspotViewModel.surfSpots
+        }
+        let queryLowerCased = query.lowercased()
+        return surfspotViewModel.surfSpots.filter({ $0.name.lowercased().contains(queryLowerCased) || $0.description.lowercased().contains(queryLowerCased)})
+    }
+    
     var body: some View {
         Group {
             if surfspotViewModel.surfSpotsLoading {
                 ProgressView()
             } else {
                 List {
-                    ForEach(surfspotViewModel.surfSpots, id: \._id) { surfSpot in
+                    ForEach(filteredSurfSpots, id: \._id) { surfSpot in
                         NavigationLink {
-                            Text("TODO")
+                            SurfSpotDetail(surfSpot: surfSpot)
                         } label: {
                             VStack {
                                 HStack {

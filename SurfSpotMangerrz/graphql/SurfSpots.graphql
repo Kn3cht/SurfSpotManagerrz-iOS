@@ -17,3 +17,9 @@ query ListSurfSpots {
         ...SurfSpotFragment
     }
 }
+
+mutation CreateOrUpdateSurfSpot($surfSpot: SurfSpotInput) {
+    createOrUpdateSurfSpot(surfSpot: $surfSpot) {
+        ...SurfSpotFragment
+    }
+}
