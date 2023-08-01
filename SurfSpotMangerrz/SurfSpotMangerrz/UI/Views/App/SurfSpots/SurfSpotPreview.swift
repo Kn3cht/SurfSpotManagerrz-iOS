@@ -11,21 +11,17 @@ import MapKit
 
 struct SurfSpotPreview: View {
     
-    var surfSpot: SurfSpotFragment
-    var toggleEdit: () -> Void
-
-    var annotations: [MapAnnotation] {
-        let location = surfSpot.location
-        let coordinates = location.coordinates
-        let name = location.name
-        return [MapAnnotation(name: name, coordinate: CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon))]
-    }
+    @EnvironmentObject var surfSpotViewModel: SurfSpotViewModel
+    @Environment(\.dismiss) var dismiss
     
     @State private var region: MKCoordinateRegion
     @State var showDescription: Bool = false
     @State private var rating: Int?
+    @State private var isPresentingDeletionAlert: Bool = false
     
-    
+    var surfSpot: SurfSpotFragment
+    var toggleEdit: () -> Void
+
     init(surfSpot: SurfSpotFragment, toggleEdit: @escaping () -> Void) {
         self.surfSpot = surfSpot
         self.toggleEdit = toggleEdit
@@ -34,6 +30,12 @@ struct SurfSpotPreview: View {
         self._region = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
     }
     
+    var annotations: [MapAnnotation] {
+        let location = surfSpot.location
+        let coordinates = location.coordinates
+        let name = location.name
+        return [MapAnnotation(name: name, coordinate: CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon))]
+    }
     
     var body: some View {
         Form {
@@ -94,6 +96,23 @@ struct SurfSpotPreview: View {
             }
             Section(header: Text("Rating")) {
                 Rating(rating: $rating, editable: false)
+            }
+            Section {
+                Button {
+                    isPresentingDeletionAlert.toggle()
+                } label: {
+                    Text("Delete")
+                }
+                .tint(.red)
+                .confirmationDialog("Are you sure?", isPresented: $isPresentingDeletionAlert) {
+                    Button("Delete \(surfSpot.name)?", role: .destructive) {
+                        surfSpotViewModel.deleteSurfSpot(_id: surfSpot._id) {
+                            if $0 {
+                                dismiss()
+                            }
+                        }
+                    }
+                }
             }
         }
         .navigationTitle(surfSpot.name)

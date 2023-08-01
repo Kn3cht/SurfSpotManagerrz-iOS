@@ -85,7 +85,7 @@ class SurfSpotViewModel: ObservableObject {
         }
     }
     
-    func deleteSurfSpot(_id: String) {
+    func deleteSurfSpot(_id: String, completion: @escaping (Bool) -> Void) {
         deleteSurfSpotLoading = true
         Network.shared.apollo.perform(mutation: DeleteSurfSpotMutation(_id: _id)) { [weak self] result in
             guard let self = self else { return }
@@ -95,13 +95,17 @@ class SurfSpotViewModel: ObservableObject {
             case.success(let gqlResult):
                 if let errors = gqlResult.errors {
                     print(errors)
+                    completion(false)
                 } else if let deletedSurfSpotId = gqlResult.data?.deleteSurfSpot {
                     self.surfSpots = self.surfSpots.filter { $0._id != deletedSurfSpotId }
+                    completion(true)
                 } else {
                     print("failure")
+                    completion(false)
                 }
             case .failure(let error):
                 print(error)
+                completion(false)
             }
         }
     }

@@ -13,6 +13,8 @@ class AuthViewModel: ObservableObject {
       
     @Published var authState: AuthState = .unauthorized
     
+    @Published var findCurrentUserLoading: Bool = false
+    
     @Published var loginLoading: Bool = false
     @Published var loginFailed: Bool = false
     
@@ -72,9 +74,10 @@ class AuthViewModel: ObservableObject {
     }
     
     func findCurrentUser() {
+        findCurrentUserLoading = true
         Network.shared.apollo.fetch(query: FindCurrentUserQuery()) { [weak self] result in
             guard let self = self else { return }
-            
+            self.findCurrentUserLoading = false
             self.loginLoading = false
             
             switch result {

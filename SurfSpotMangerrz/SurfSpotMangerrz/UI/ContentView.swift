@@ -13,11 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         Group {
-            switch authViewModel.authState {
-            case .authorized:
-                AppWrapper()
-            case .unauthorized:
-                Authorization()
+            if authViewModel.findCurrentUserLoading {
+                ProgressView()
+            } else {
+                switch authViewModel.authState {
+                case .authorized:
+                    AppWrapper()
+                case .unauthorized:
+                    Authorization()
+                }
             }
         }
         .onAppear {
