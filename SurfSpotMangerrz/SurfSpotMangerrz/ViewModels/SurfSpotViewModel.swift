@@ -39,7 +39,7 @@ class SurfSpotViewModel: ObservableObject {
         }
     }
     
-    func createOrUpdateSurfSpot(_id: String?, name: String, description: String, annotationItem: AnnotationItem, completion: @escaping (SurfSpotFragment?) -> Void) {
+    func createOrUpdateSurfSpot(_id: String?, name: String, description: String, annotationItem: AnnotationItem, rating: Int?, completion: @escaping (SurfSpotFragment?) -> Void) {
         surfSpotUpdateLoading = true
         
         
@@ -54,7 +54,8 @@ class SurfSpotViewModel: ObservableObject {
                     lat: annotationItem.latitude,
                     lon: annotationItem.longitude
                 )
-            )
+            ),
+            rating: rating != nil ? .some(rating!) : .none
         )
         
         Network.shared.apollo.perform(mutation: CreateOrUpdateSurfSpotMutation(surfSpot: .some(surfSpotInput)

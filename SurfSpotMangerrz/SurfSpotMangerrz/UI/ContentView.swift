@@ -12,14 +12,12 @@ struct ContentView: View {
     @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
-        NavigationStack {
-            Group {
-                switch authViewModel.authState {
-                case .authorized:
-                    AppWrapper()
-                case .unauthorized:
-                    Authorization()
-                }
+        Group {
+            switch authViewModel.authState {
+            case .authorized:
+                AppWrapper()
+            case .unauthorized:
+                Authorization()
             }
         }
         .onAppear {

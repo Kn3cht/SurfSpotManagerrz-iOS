@@ -10,6 +10,7 @@
 		494890A7E78C1B44A3776CE9 /* .graphqlconfig in Resources */ = {isa = PBXBuildFile; fileRef = 494894E058C8B509A12197C2 /* .graphqlconfig */; };
 		49489BB344D52E3C43F71AC8 /* Auth.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 49489146A4B125BC4686BDB1 /* Auth.graphql */; };
 		49489F22C0B40673C46120DB /* SurfSpots.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 49489C8560F5D30EB16C481A /* SurfSpots.graphql */; };
+		A2A1BBB92A790B56001248B7 /* SurfSpotDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */; };
 		A2C872F72A783DF2000FF483 /* SurfSpotMangerrzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C872F62A783DF2000FF483 /* SurfSpotMangerrzApp.swift */; };
 		A2C872F92A783DF2000FF483 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C872F82A783DF2000FF483 /* ContentView.swift */; };
 		A2C872FB2A783DF3000FF483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2C872FA2A783DF3000FF483 /* Assets.xcassets */; };
@@ -19,7 +20,6 @@
 		A2C8730D2A783EB6000FF483 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8730C2A783EB6000FF483 /* Login.swift */; };
 		A2C873102A783EC4000FF483 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8730F2A783EC4000FF483 /* Registration.swift */; };
 		A2C873122A783ED6000FF483 /* SurfSpotList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873112A783ED6000FF483 /* SurfSpotList.swift */; };
-		A2C873142A783EDE000FF483 /* SurfSpotDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */; };
 		A2C873182A783F18000FF483 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873172A783F18000FF483 /* Network.swift */; };
 		A2C8731A2A783F58000FF483 /* NetworkInterceptorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873192A783F58000FF483 /* NetworkInterceptorProvider.swift */; };
 		A2C8731C2A783F6E000FF483 /* AuthorizationInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8731B2A783F6E000FF483 /* AuthorizationInterceptor.swift */; };
@@ -47,6 +47,7 @@
 		49489146A4B125BC4686BDB1 /* Auth.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = Auth.graphql; sourceTree = "<group>"; };
 		494894E058C8B509A12197C2 /* .graphqlconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.graphqlconfig; path = .graphqlconfig; sourceTree = "<group>"; };
 		49489C8560F5D30EB16C481A /* SurfSpots.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = SurfSpots.graphql; sourceTree = "<group>"; };
+		A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotDetail.swift; sourceTree = "<group>"; };
 		A2C872F32A783DF2000FF483 /* SurfSpotMangerrz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSpotMangerrz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C872F62A783DF2000FF483 /* SurfSpotMangerrzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotMangerrzApp.swift; sourceTree = "<group>"; };
 		A2C872F82A783DF2000FF483 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		A2C8730C2A783EB6000FF483 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A2C8730F2A783EC4000FF483 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		A2C873112A783ED6000FF483 /* SurfSpotList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotList.swift; sourceTree = "<group>"; };
-		A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurfSpotDetail.swift; path = ../SurfSpotDetail.swift; sourceTree = "<group>"; };
 		A2C873172A783F18000FF483 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A2C873192A783F58000FF483 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
 		A2C8731B2A783F6E000FF483 /* AuthorizationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInterceptor.swift; sourceTree = "<group>"; };
@@ -236,10 +236,10 @@
 		A2C873492A78F005000FF483 /* SurfSpots */ = {
 			isa = PBXGroup;
 			children = (
-				A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */,
 				A2C873112A783ED6000FF483 /* SurfSpotList.swift */,
 				A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */,
 				A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */,
+				A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */,
 			);
 			path = SurfSpots;
 			sourceTree = "<group>";
@@ -345,7 +345,6 @@
 				A2C8734D2A78F01E000FF483 /* SurfSpotPreview.swift in Sources */,
 				A2C872F72A783DF2000FF483 /* SurfSpotMangerrzApp.swift in Sources */,
 				A2C873462A78DEA1000FF483 /* AddressSelection.swift in Sources */,
-				A2C873142A783EDE000FF483 /* SurfSpotDetail.swift in Sources */,
 				A2C873532A790483000FF483 /* Rating.swift in Sources */,
 				A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */,
 				A2C8733A2A7845B3000FF483 /* Authorization.swift in Sources */,
@@ -355,6 +354,7 @@
 				A2C873182A783F18000FF483 /* Network.swift in Sources */,
 				A2C873092A783E7A000FF483 /* Constants.swift in Sources */,
 				A2C873122A783ED6000FF483 /* SurfSpotList.swift in Sources */,
+				A2A1BBB92A790B56001248B7 /* SurfSpotDetail.swift in Sources */,
 				A2C873372A7844B4000FF483 /* AuthViewModel.swift in Sources */,
 				A2C873102A783EC4000FF483 /* Registration.swift in Sources */,
 				A2C8730D2A783EB6000FF483 /* Login.swift in Sources */,

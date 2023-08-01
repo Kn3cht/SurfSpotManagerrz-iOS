@@ -12,6 +12,7 @@ struct SurfSpotList: View {
     
     @StateObject var surfspotViewModel = SurfSpotViewModel()
     @State var query: String = ""
+    @State var spotToBeDeleted: SurfSpotFragment? = nil
     @State private var isPresentingDeletionAlert: Bool = false
 
     
@@ -24,11 +25,10 @@ struct SurfSpotList: View {
     }
     
     var body: some View {
-        Group {
+        NavigationStack {
             if surfspotViewModel.surfSpotsLoading {
                 ProgressView()
             } else {
-                 
                 List {
                     ForEach(filteredSurfSpots, id: \._id) { surfSpot in
                         NavigationLink(value: surfSpot) {
@@ -46,14 +46,11 @@ struct SurfSpotList: View {
                                 }
                             }
                         }
-                        .confirmationDialog("Are you sure?", isPresented: $isPresentingDeletionAlert) {
-                            Button("Delete surf spot?", role: .destructive) {
-                                surfspotViewModel.deleteSurfSpot(_id: surfSpot._id)
-                            }
-                        }
+  
                         .swipeActions {
                             Button {
-                                isPresentingDeletionAlert.toggle()
+                                spotToBeDeleted = surfSpot
+                                isPresentingDeletionAlert = true
                             } label: {
                                 Image(systemName: "trash")
                             }
@@ -62,7 +59,15 @@ struct SurfSpotList: View {
                         }
                     }
                 }
-
+                .confirmationDialog("Are you sure?", isPresented: $isPresentingDeletionAlert) {
+                    if let spotToBeDeleted = spotToBeDeleted {
+                        Button("Delete \(spotToBeDeleted.name)?", role: .destructive) {
+                            surfspotViewModel.deleteSurfSpot(_id: spotToBeDeleted._id)
+                            self.spotToBeDeleted = nil
+                        }
+                    }
+                }
+                .navigationTitle("Surf Spots")
                 .navigationDestination(for: SurfSpotFragment.self) { surfSpot in
                     SurfSpotDetail(surfSpot: surfSpot)
                         .environmentObject(surfspotViewModel)

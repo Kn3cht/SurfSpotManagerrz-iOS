@@ -49,7 +49,7 @@ struct SurfSpotEdit: View {
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    surfSpotViewModel.createOrUpdateSurfSpot(_id: _id, name: name, description: description, annotationItem: selectedAddressAnnotation!) { surfSpot in
+                    surfSpotViewModel.createOrUpdateSurfSpot(_id: _id, name: name, description: description, annotationItem: selectedAddressAnnotation!, rating: rating) { surfSpot in
                         if let surfSpot = surfSpot {
                             onSave(surfSpot)
                         } else {

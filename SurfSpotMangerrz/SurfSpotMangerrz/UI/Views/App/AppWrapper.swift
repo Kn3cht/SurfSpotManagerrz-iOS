@@ -14,10 +14,12 @@ struct AppWrapper: View {
                 .tabItem {
                     Label("Surf Spots", systemImage: "figure.surfing")
                 }
+        
             Profile()
                 .tabItem {
-                    Label("Order", systemImage: "person.fill")
+                    Label("Profile", systemImage: "person.fill")
                 }
+                .navigationTitle("Profile")
         }
     }
 }
