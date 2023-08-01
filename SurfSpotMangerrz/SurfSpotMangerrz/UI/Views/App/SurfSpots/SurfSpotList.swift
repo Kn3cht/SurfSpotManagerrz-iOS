@@ -37,17 +37,26 @@ struct SurfSpotList: View {
                             List {
                                 ForEach(filteredSurfSpots, id: \._id) { surfSpot in
                                     NavigationLink(value: surfSpot) {
-                                        VStack {
-                                            HStack {
-                                                HighlightedText(surfSpot.name, query: query)
-                                                Spacer()
+                                        HStack {
+                                            VStack {
+                                                HStack {
+                                                    HighlightedText(surfSpot.name, query: query)
+                                                    Spacer()
+                                                }
+                                                HStack {
+                                                    HighlightedText(surfSpot.description, query: query)
+                                                        .lineLimit(1)
+                                                        .font(.caption)
+                                                        .foregroundColor(.gray)
+                                                    Spacer()
+                                                }
                                             }
-                                            HStack {
-                                                HighlightedText(surfSpot.description, query: query)
-                                                    .lineLimit(1)
-                                                    .font(.caption)
-                                                    .foregroundColor(.gray)
-                                                Spacer()
+                                            if let rating = surfSpot.rating {
+                                                HStack {
+                                                    Text("\(rating)")
+                                                    Image(systemName: "star.fill")
+                                                        .foregroundColor(.yellow)
+                                                }
                                             }
                                         }
                                     }
