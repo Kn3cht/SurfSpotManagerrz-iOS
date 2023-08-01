@@ -15,8 +15,6 @@ struct Constants {
     
     struct Network {
         /// Vercel
-        // public static let gqlEndpoint: URL = URL(string: "https://surf-spot-managerrz.vercel.app/graphql")!
-        /// Local Endpoint
-        public static let gqlEndpoint: URL = URL(string: "http://192.168.2.120:4000/graphql")!
+        public static let gqlEndpoint: URL = URL(string: "https://surf-spot-managerrz.vercel.app/graphql")!
     }
 }
