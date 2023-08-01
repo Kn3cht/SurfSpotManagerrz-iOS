@@ -16,7 +16,7 @@ struct ContentView: View {
             Group {
                 switch authViewModel.authState {
                 case .authorized:
-                    SurfSpotList()
+                    AppWrapper()
                 case .unauthorized:
                     Authorization()
                 }

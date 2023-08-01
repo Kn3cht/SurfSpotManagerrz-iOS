@@ -47,6 +47,7 @@ public class CreateOrUpdateSurfSpotMutation: GraphQLMutation {
       public var name: String { __data["name"] }
       public var description: String { __data["description"] }
       public var location: Location { __data["location"] }
+      public var rating: Int? { __data["rating"] }
 
       public struct Fragments: FragmentContainer {
         public let __data: DataDict

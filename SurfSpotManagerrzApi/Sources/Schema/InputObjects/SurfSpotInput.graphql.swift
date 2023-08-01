@@ -14,13 +14,15 @@ public struct SurfSpotInput: InputObject {
     _id: GraphQLNullable<ObjectId> = nil,
     name: String,
     description: String,
-    location: LocationInput
+    location: LocationInput,
+    rating: GraphQLNullable<Int> = nil
   ) {
     __data = InputDict([
       "_id": _id,
       "name": name,
       "description": description,
-      "location": location
+      "location": location,
+      "rating": rating
     ])
   }
 
@@ -42,5 +44,10 @@ public struct SurfSpotInput: InputObject {
   public var location: LocationInput {
     get { __data["location"] }
     set { __data["location"] = newValue }
+  }
+
+  public var rating: GraphQLNullable<Int> {
+    get { __data["rating"] }
+    set { __data["rating"] = newValue }
   }
 }

@@ -38,6 +38,9 @@
 		A2C8734D2A78F01E000FF483 /* SurfSpotPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */; };
 		A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */; };
 		A2C873512A78FC81000FF483 /* LocationSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873502A78FC81000FF483 /* LocationSummary.swift */; };
+		A2C873532A790483000FF483 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873522A790483000FF483 /* Rating.swift */; };
+		A2C873562A790953000FF483 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873552A790953000FF483 /* Profile.swift */; };
+		A2C873582A79095A000FF483 /* AppWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873572A79095A000FF483 /* AppWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotPreview.swift; sourceTree = "<group>"; };
 		A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotEdit.swift; sourceTree = "<group>"; };
 		A2C873502A78FC81000FF483 /* LocationSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSummary.swift; sourceTree = "<group>"; };
+		A2C873522A790483000FF483 /* Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		A2C873552A790953000FF483 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		A2C873572A79095A000FF483 /* AppWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +153,7 @@
 		A2C8730B2A783EAB000FF483 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2C873492A78F005000FF483 /* SurfSpots */,
+				A2C873542A79094A000FF483 /* App */,
 				A2C873382A7845A0000FF483 /* Authorization */,
 			);
 			path = Views;
@@ -222,6 +228,7 @@
 				A2C873412A7857AD000FF483 /* HighlightedText.swift */,
 				A2C873452A78DEA1000FF483 /* AddressSelection.swift */,
 				A2C873502A78FC81000FF483 /* LocationSummary.swift */,
+				A2C873522A790483000FF483 /* Rating.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -235,6 +242,16 @@
 				A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */,
 			);
 			path = SurfSpots;
+			sourceTree = "<group>";
+		};
+		A2C873542A79094A000FF483 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A2C873492A78F005000FF483 /* SurfSpots */,
+				A2C873552A790953000FF483 /* Profile.swift */,
+				A2C873572A79095A000FF483 /* AppWrapper.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,10 +341,12 @@
 			files = (
 				A2C872F92A783DF2000FF483 /* ContentView.swift in Sources */,
 				A2C8733D2A7845FF000FF483 /* View+Border.swift in Sources */,
+				A2C873582A79095A000FF483 /* AppWrapper.swift in Sources */,
 				A2C8734D2A78F01E000FF483 /* SurfSpotPreview.swift in Sources */,
 				A2C872F72A783DF2000FF483 /* SurfSpotMangerrzApp.swift in Sources */,
 				A2C873462A78DEA1000FF483 /* AddressSelection.swift in Sources */,
 				A2C873142A783EDE000FF483 /* SurfSpotDetail.swift in Sources */,
+				A2C873532A790483000FF483 /* Rating.swift in Sources */,
 				A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */,
 				A2C8733A2A7845B3000FF483 /* Authorization.swift in Sources */,
 				A2C8731A2A783F58000FF483 /* NetworkInterceptorProvider.swift in Sources */,
@@ -340,6 +359,7 @@
 				A2C873102A783EC4000FF483 /* Registration.swift in Sources */,
 				A2C8730D2A783EB6000FF483 /* Login.swift in Sources */,
 				A2C873422A7857AD000FF483 /* HighlightedText.swift in Sources */,
+				A2C873562A790953000FF483 /* Profile.swift in Sources */,
 				A2C8731C2A783F6E000FF483 /* AuthorizationInterceptor.swift in Sources */,
 				A2C873512A78FC81000FF483 /* LocationSummary.swift in Sources */,
 			);

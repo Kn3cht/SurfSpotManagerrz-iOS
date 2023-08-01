@@ -16,6 +16,7 @@ struct SurfSpotEdit: View {
     @State var name: String = ""
     @State var description: String = ""
     @State var selectedAddressAnnotation: AnnotationItem? = nil
+    @State var rating: Int? = nil
     
     @State var showingAlert: Bool = false
     
@@ -39,6 +40,9 @@ struct SurfSpotEdit: View {
             }
             Section(header: Text("Description")) {
                 TextEditor(text: $description)
+            }
+            Section(header: Text("Rating")) {
+                Rating(rating: $rating)
             }
         }
         .navigationTitle(navigationTitle)

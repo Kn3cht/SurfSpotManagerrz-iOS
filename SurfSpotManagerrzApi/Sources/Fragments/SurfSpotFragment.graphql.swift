@@ -5,7 +5,7 @@
 
 public struct SurfSpotFragment: SurfSpotManagerrzApi.SelectionSet, Fragment {
   public static var fragmentDefinition: StaticString {
-    "fragment SurfSpotFragment on SurfSpot { __typename _id name description location { __typename ...LocationFragment } }"
+    "fragment SurfSpotFragment on SurfSpot { __typename _id name description location { __typename ...LocationFragment } rating }"
   }
 
   public let __data: DataDict
@@ -18,12 +18,14 @@ public struct SurfSpotFragment: SurfSpotManagerrzApi.SelectionSet, Fragment {
     .field("name", String.self),
     .field("description", String.self),
     .field("location", Location.self),
+    .field("rating", Int?.self),
   ] }
 
   public var _id: SurfSpotManagerrzApi.ObjectId { __data["_id"] }
   public var name: String { __data["name"] }
   public var description: String { __data["description"] }
   public var location: Location { __data["location"] }
+  public var rating: Int? { __data["rating"] }
 
   /// Location
   ///

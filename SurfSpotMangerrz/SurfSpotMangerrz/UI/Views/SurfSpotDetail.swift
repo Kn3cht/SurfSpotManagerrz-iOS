@@ -39,7 +39,7 @@ struct SurfSpotDetail: View {
                     subtitle: location.address,
                     latitude: coordinates.lat,
                     longitude: coordinates.lon
-                )) { surfSpot in
+                ), rating: surfSpot.rating) { surfSpot in
                     self.surfSpot = surfSpot
                     editMode.toggle()
                 }

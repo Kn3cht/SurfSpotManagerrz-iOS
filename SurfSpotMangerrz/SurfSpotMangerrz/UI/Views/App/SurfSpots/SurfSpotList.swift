@@ -12,6 +12,8 @@ struct SurfSpotList: View {
     
     @StateObject var surfspotViewModel = SurfSpotViewModel()
     @State var query: String = ""
+    @State private var isPresentingDeletionAlert: Bool = false
+
     
     var filteredSurfSpots: [SurfSpotFragment] {
         if query.isEmpty {
@@ -44,13 +46,27 @@ struct SurfSpotList: View {
                                 }
                             }
                         }
+                        .confirmationDialog("Are you sure?", isPresented: $isPresentingDeletionAlert) {
+                            Button("Delete surf spot?", role: .destructive) {
+                                surfspotViewModel.deleteSurfSpot(_id: surfSpot._id)
+                            }
+                        }
+                        .swipeActions {
+                            Button {
+                                isPresentingDeletionAlert.toggle()
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                            .tint(.red)
+
+                        }
                     }
                 }
-                    
-                    .navigationDestination(for: SurfSpotFragment.self) { surfSpot in
-                        SurfSpotDetail(surfSpot: surfSpot)
-                            .environmentObject(surfspotViewModel)
-                    }
+
+                .navigationDestination(for: SurfSpotFragment.self) { surfSpot in
+                    SurfSpotDetail(surfSpot: surfSpot)
+                        .environmentObject(surfspotViewModel)
+                }
                 
             }
         }

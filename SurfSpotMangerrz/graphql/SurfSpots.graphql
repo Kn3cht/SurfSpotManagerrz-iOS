@@ -18,6 +18,7 @@ fragment SurfSpotFragment on SurfSpot {
     location {
         ...LocationFragment
     }
+    rating
 }
 
 query ListSurfSpots {
@@ -30,4 +31,8 @@ mutation CreateOrUpdateSurfSpot($surfSpot: SurfSpotInput) {
     createOrUpdateSurfSpot(surfSpot: $surfSpot) {
         ...SurfSpotFragment
     }
+}
+
+mutation DeleteSurfSpot($_id: ObjectId!) {
+    deleteSurfSpot(_id: $_id)
 }

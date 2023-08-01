@@ -23,12 +23,13 @@ struct SurfSpotPreview: View {
     
     @State private var region: MKCoordinateRegion
     @State var showDescription: Bool = false
+    @State private var rating: Int?
     
     
     init(surfSpot: SurfSpotFragment, toggleEdit: @escaping () -> Void) {
         self.surfSpot = surfSpot
         self.toggleEdit = toggleEdit
-        
+        self._rating = State(initialValue: surfSpot.rating)
         let coordinates = surfSpot.location.coordinates
         self._region = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinates.lat, longitude: coordinates.lon), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
     }
@@ -90,6 +91,9 @@ struct SurfSpotPreview: View {
                 } label: {
                     Text("Open in Apple Maps")
                 }
+            }
+            Section(header: Text("Rating")) {
+                Rating(rating: $rating, editable: false)
             }
         }
         .navigationTitle(surfSpot.name)
