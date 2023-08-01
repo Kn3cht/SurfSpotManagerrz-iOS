@@ -31,7 +31,7 @@ struct SurfSpotEdit: View {
     
     var body: some View {
         
-        let valid = !name.isEmpty && !description.isEmpty && selectedAddressAnnotation != nil
+        let valid = !name.isEmpty && selectedAddressAnnotation != nil
     
         Form {
             Section(header: Text("Info")) {
