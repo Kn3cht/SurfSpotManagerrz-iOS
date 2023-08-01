@@ -19,7 +19,6 @@ struct AppWrapper: View {
                 .tabItem {
                     Label("Profile", systemImage: "person.fill")
                 }
-                .navigationTitle("Profile")
         }
     }
 }

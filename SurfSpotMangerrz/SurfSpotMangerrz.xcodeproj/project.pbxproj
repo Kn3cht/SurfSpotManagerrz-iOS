@@ -11,6 +11,7 @@
 		49489BB344D52E3C43F71AC8 /* Auth.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 49489146A4B125BC4686BDB1 /* Auth.graphql */; };
 		49489F22C0B40673C46120DB /* SurfSpots.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 49489C8560F5D30EB16C481A /* SurfSpots.graphql */; };
 		A2A1BBB92A790B56001248B7 /* SurfSpotDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */; };
+		A2A1BBBC2A792773001248B7 /* Stirng+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A1BBBB2A792773001248B7 /* Stirng+Extension.swift */; };
 		A2C872F72A783DF2000FF483 /* SurfSpotMangerrzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C872F62A783DF2000FF483 /* SurfSpotMangerrzApp.swift */; };
 		A2C872F92A783DF2000FF483 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C872F82A783DF2000FF483 /* ContentView.swift */; };
 		A2C872FB2A783DF3000FF483 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2C872FA2A783DF3000FF483 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		494894E058C8B509A12197C2 /* .graphqlconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.graphqlconfig; path = .graphqlconfig; sourceTree = "<group>"; };
 		49489C8560F5D30EB16C481A /* SurfSpots.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = SurfSpots.graphql; sourceTree = "<group>"; };
 		A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotDetail.swift; sourceTree = "<group>"; };
+		A2A1BBBB2A792773001248B7 /* Stirng+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stirng+Extension.swift"; sourceTree = "<group>"; };
 		A2C872F32A783DF2000FF483 /* SurfSpotMangerrz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSpotMangerrz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C872F62A783DF2000FF483 /* SurfSpotMangerrzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotMangerrzApp.swift; sourceTree = "<group>"; };
 		A2C872F82A783DF2000FF483 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2A1BBBA2A792767001248B7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A2A1BBBB2A792773001248B7 /* Stirng+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		A2C872EA2A783DF2000FF483 = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +129,7 @@
 		A2C872F52A783DF2000FF483 /* SurfSpotMangerrz */ = {
 			isa = PBXGroup;
 			children = (
+				A2A1BBBA2A792767001248B7 /* Extension */,
 				A2C873162A783F05000FF483 /* Network */,
 				A2C873152A783EE8000FF483 /* ViewModels */,
 				A2C8730A2A783EA2000FF483 /* UI */,
@@ -347,6 +358,7 @@
 				A2C873462A78DEA1000FF483 /* AddressSelection.swift in Sources */,
 				A2C873532A790483000FF483 /* Rating.swift in Sources */,
 				A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */,
+				A2A1BBBC2A792773001248B7 /* Stirng+Extension.swift in Sources */,
 				A2C8733A2A7845B3000FF483 /* Authorization.swift in Sources */,
 				A2C8731A2A783F58000FF483 /* NetworkInterceptorProvider.swift in Sources */,
 				A2C8733F2A7854DB000FF483 /* SurfSpotViewModel.swift in Sources */,

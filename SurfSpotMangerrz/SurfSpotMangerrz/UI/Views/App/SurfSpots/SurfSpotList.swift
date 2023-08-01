@@ -29,34 +29,48 @@ struct SurfSpotList: View {
             if surfspotViewModel.surfSpotsLoading {
                 ProgressView()
             } else {
-                List {
-                    ForEach(filteredSurfSpots, id: \._id) { surfSpot in
-                        NavigationLink(value: surfSpot) {
-                            VStack {
-                                HStack {
-                                    HighlightedText(surfSpot.name, query: query)
-                                    Spacer()
-                                }
-                                HStack {
-                                    HighlightedText(surfSpot.description, query: query)
-                                        .lineLimit(1)
-                                        .font(.caption)
-                                        .foregroundColor(.gray)
-                                    Spacer()
+                Group {
+                    if surfspotViewModel.surfSpots.isEmpty {
+                        Text("No surf spots yet")
+                    }
+                    List {
+                        ForEach(filteredSurfSpots, id: \._id) { surfSpot in
+                            NavigationLink(value: surfSpot) {
+                                VStack {
+                                    HStack {
+                                        HighlightedText(surfSpot.name, query: query)
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        HighlightedText(surfSpot.description, query: query)
+                                            .lineLimit(1)
+                                            .font(.caption)
+                                            .foregroundColor(.gray)
+                                        Spacer()
+                                    }
                                 }
                             }
-                        }
-  
-                        .swipeActions {
-                            Button {
-                                spotToBeDeleted = surfSpot
-                                isPresentingDeletionAlert = true
-                            } label: {
-                                Image(systemName: "trash")
+                            .swipeActions(edge: .leading) {
+                                NavigationLink(value: surfSpot) {
+                                    Text("Edit")
+                                }
+                                .tint(.blue)
                             }
-                            .tint(.red)
-
+                            .swipeActions {
+                                Button {
+                                    spotToBeDeleted = surfSpot
+                                    isPresentingDeletionAlert = true
+                                } label: {
+                                    Image(systemName: "trash")
+                                }
+                                .tint(.red)
+                                
+                            }
                         }
+                    }
+                    .listStyle(.insetGrouped)
+                    .refreshable {
+                        surfspotViewModel.listSurfSpots()
                     }
                 }
                 .confirmationDialog("Are you sure?", isPresented: $isPresentingDeletionAlert) {
@@ -72,23 +86,19 @@ struct SurfSpotList: View {
                     SurfSpotDetail(surfSpot: surfSpot)
                         .environmentObject(surfspotViewModel)
                 }
-                
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                NavigationLink {
-                    SurfSpotDetail(surfSpot: nil, editMode: true)
-                        .environmentObject(surfspotViewModel)
-                } label: {
-                    Image(systemName: "plus")
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        NavigationLink {
+                            SurfSpotDetail(surfSpot: nil, editMode: true)
+                                .environmentObject(surfspotViewModel)
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
                 }
             }
         }
-        .listStyle(.plain)
-        .refreshable {
-            surfspotViewModel.listSurfSpots()
-        }
+
         .onAppear {
             surfspotViewModel.listSurfSpots()
         }

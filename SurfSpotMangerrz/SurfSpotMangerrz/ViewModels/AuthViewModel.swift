@@ -19,6 +19,9 @@ class AuthViewModel: ObservableObject {
     @Published var createAccountLoading: Bool = false
     @Published var createAccountFailed: Bool = false
     
+    @Published var deleteAccountLoading: Bool = false
+    @Published var deleteAccountFailed: Bool = false
+    
     func login(email: String, password: String) {
         loginLoading = true
         Network.shared.apollo.perform(mutation: LoginMutation(email: email, password: password)) { [weak self] result in
@@ -95,6 +98,31 @@ class AuthViewModel: ObservableObject {
         let keychain = KeychainSwift()
         keychain.delete(Constants.Security.tokenKeychainKey)
         self.authState = .unauthorized
+    }
+    
+    func deleteAccount() {
+        deleteAccountLoading = true
+        Network.shared.apollo.perform(mutation: DeleteAccountMutation()) { [weak self] result in
+            guard let self = self else { return }
+            self.deleteAccountLoading = false
+            
+            switch result {
+            case .success(let gqlResult):
+                if let errors = gqlResult.errors {
+                    print(errors)
+                    deleteAccountFailed = true
+                } else if gqlResult.data?.deleteAccount != nil {
+                    self.authState = .unauthorized
+                    self.deleteAccountFailed = false
+                } else {
+                    print("account could not be deleted")
+                    self.deleteAccountFailed = true
+                }
+            case .failure(let error):
+                print(error)
+                self.deleteAccountFailed = true
+            }
+        }
     }
 }
 

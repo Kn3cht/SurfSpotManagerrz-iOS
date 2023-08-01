@@ -8,33 +8,55 @@
 import SwiftUI
 
 struct Authorization: View {
+    
+    @State var loginVisible: Bool = false
+    @State var registrationVisible: Bool = false
+    
     var body: some View {
-        VStack {
-            Spacer()
-            NavigationLink {
-                Login()
-            } label: {
-                Text("Login")
-                    .frame(maxWidth: .infinity)
-                    .foregroundColor(.white)
-                    .modifier(Bordered(backgroundColor: .blue))
+        NavigationView {
+            VStack {
+                Image("Logo")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .padding(.top)
+                Text("Apollo client boilerplate")
+                    .foregroundColor(.primary)
+                    .frame(alignment: .center)
+                    .font(.title)
+                
+                Spacer()
+                Button {
+                    loginVisible.toggle()
+                } label: {
+                    Text("Login")
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .modifier(Bordered(backgroundColor: .blue))
+                }
+                Button {
+                    registrationVisible.toggle()
+                } label: {
+                    Text("Register")
+                        .frame(maxWidth: .infinity)
+                        .modifier(Bordered())
+                }
             }
-            NavigationLink {
+            .sheet(isPresented: $registrationVisible) {
                 Registration()
-                    
-            } label: {
-                Text("Register")
-                    .frame(maxWidth: .infinity)
-                    .modifier(Bordered())
             }
-        }.padding()
+            .sheet(isPresented: $loginVisible) {
+                Login()
+            }
+            .navigationTitle("SurfSpotManagerrz")
+            .padding()
+        }
     }
 }
 
 struct Authorization_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            Authorization()
-        }
+        Authorization()
     }
 }
