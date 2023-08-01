@@ -7,8 +7,8 @@ public class CreateAccountMutation: GraphQLMutation {
   public static let operationName: String = "CreateAccount"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"mutation CreateAccount($username: String!, $email: String!, $password: String!) { createAccount(username: $username, email: $email, password: $password) { __typename token user { __typename ...UserFragment } } }"#,
-      fragments: [UserFragment.self]
+      #"mutation CreateAccount($username: String!, $email: String!, $password: String!) { createAccount(username: $username, email: $email, password: $password) { __typename ...AuthorizationResponseFragment } }"#,
+      fragments: [AuthorizationResponseFragment.self, UserFragment.self]
     ))
 
   public var username: String
@@ -48,20 +48,26 @@ public class CreateAccountMutation: GraphQLMutation {
 
     /// CreateAccount
     ///
-    /// Parent Type: `CreateAccountResponse`
+    /// Parent Type: `AuthorizationResponse`
     public struct CreateAccount: SurfSpotManagerrzApi.SelectionSet {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.CreateAccountResponse }
+      public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.AuthorizationResponse }
       public static var __selections: [ApolloAPI.Selection] { [
         .field("__typename", String.self),
-        .field("token", String?.self),
-        .field("user", User?.self),
+        .fragment(AuthorizationResponseFragment.self),
       ] }
 
       public var token: String? { __data["token"] }
       public var user: User? { __data["user"] }
+
+      public struct Fragments: FragmentContainer {
+        public let __data: DataDict
+        public init(_dataDict: DataDict) { __data = _dataDict }
+
+        public var authorizationResponseFragment: AuthorizationResponseFragment { _toFragment() }
+      }
 
       /// CreateAccount.User
       ///
@@ -71,10 +77,6 @@ public class CreateAccountMutation: GraphQLMutation {
         public init(_dataDict: DataDict) { __data = _dataDict }
 
         public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.User }
-        public static var __selections: [ApolloAPI.Selection] { [
-          .field("__typename", String.self),
-          .fragment(UserFragment.self),
-        ] }
 
         public var _id: SurfSpotManagerrzApi.ObjectId { __data["_id"] }
         public var email: String { __data["email"] }

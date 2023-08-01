@@ -62,6 +62,8 @@ class SurfSpotViewModel: ObservableObject {
         )) { [weak self] result in
             guard let self = self else {return}
             
+            self.surfSpotUpdateLoading = false
+            
             switch result {
             case.success(let gqlResult):
                 if let errors = gqlResult.errors {

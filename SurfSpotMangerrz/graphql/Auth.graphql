@@ -5,17 +5,23 @@ query FindCurrentUser {
     }
 }
 
+fragment AuthorizationResponseFragment on AuthorizationResponse {
+    token
+    user {
+        ...UserFragment
+    }
+}
+
 mutation CreateAccount($username: String!, $email: String!, $password: String!) {
     createAccount(username: $username, email: $email, password: $password) {
-        token
-        user {
-            ...UserFragment
-        }
+        ...AuthorizationResponseFragment
     }
 }
 
 mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password)
+    login(email: $email, password: $password) {
+        ...AuthorizationResponseFragment
+    }
 }
 
 mutation DeleteAccount {

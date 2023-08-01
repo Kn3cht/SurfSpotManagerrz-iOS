@@ -52,7 +52,7 @@ struct SurfSpotPreview: View {
                         showDescription.toggle()
                     } label: {
                         Text(surfSpot.description)
-                            .lineLimit(1)
+                            .lineLimit(3)
                     }
                     .buttonStyle(.plain)
                     .sheet(isPresented: $showDescription) {

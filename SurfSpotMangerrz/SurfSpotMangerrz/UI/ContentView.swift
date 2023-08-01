@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
-        Group {
+        VStack {
             if authViewModel.findCurrentUserLoading {
                 ProgressView()
             } else {

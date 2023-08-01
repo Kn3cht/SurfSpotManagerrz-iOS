@@ -36,8 +36,8 @@ class AuthViewModel: ObservableObject {
                     print(errors)
                     handleLoginFailed()
                     self.findCurrentUser()
-                } else if let token = gqlResult.data?.login {
-                    handleLoginSuccess(token: token)
+                } else if let token = gqlResult.data?.login?.token, let currentUser = gqlResult.data?.login?.user?.fragments.userFragment {
+                    handleLoginSuccess(token: token, user: currentUser)
                 } else {
                     print("Login failed")
                     handleLoginFailed()
@@ -156,12 +156,12 @@ extension AuthViewModel {
         keychain.delete(Constants.Security.tokenKeychainKey)
     }
     
-    func handleLoginSuccess(token: String) {
+    func handleLoginSuccess(token: String, user: UserFragment) {
         let keychain = KeychainSwift()
         
         loginFailed = false
         keychain.set(token, forKey: Constants.Security.tokenKeychainKey)
-        self.findCurrentUser()
+        self.authState = .authorized(currentUser: user)
     }
 }
 

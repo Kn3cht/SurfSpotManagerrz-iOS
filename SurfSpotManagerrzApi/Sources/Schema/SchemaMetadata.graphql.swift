@@ -25,7 +25,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Query": return SurfSpotManagerrzApi.Objects.Query
     case "User": return SurfSpotManagerrzApi.Objects.User
     case "Mutation": return SurfSpotManagerrzApi.Objects.Mutation
-    case "CreateAccountResponse": return SurfSpotManagerrzApi.Objects.CreateAccountResponse
+    case "AuthorizationResponse": return SurfSpotManagerrzApi.Objects.AuthorizationResponse
     case "SurfSpot": return SurfSpotManagerrzApi.Objects.SurfSpot
     case "Location": return SurfSpotManagerrzApi.Objects.Location
     case "Coordinates": return SurfSpotManagerrzApi.Objects.Coordinates
