@@ -50,6 +50,7 @@
 		49489C8560F5D30EB16C481A /* SurfSpots.graphql */ = {isa = PBXFileReference; lastKnownFileType = file.graphql; path = SurfSpots.graphql; sourceTree = "<group>"; };
 		A2A1BBB82A790B56001248B7 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotDetail.swift; sourceTree = "<group>"; };
 		A2A1BBBB2A792773001248B7 /* Stirng+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stirng+Extension.swift"; sourceTree = "<group>"; };
+		A2A1BBBD2A7939E8001248B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A2C872F32A783DF2000FF483 /* SurfSpotMangerrz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSpotMangerrz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2C872F62A783DF2000FF483 /* SurfSpotMangerrzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotMangerrzApp.swift; sourceTree = "<group>"; };
 		A2C872F82A783DF2000FF483 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 		A2C872F52A783DF2000FF483 /* SurfSpotMangerrz */ = {
 			isa = PBXGroup;
 			children = (
+				A2A1BBBD2A7939E8001248B7 /* Info.plist */,
 				A2A1BBBA2A792767001248B7 /* Extension */,
 				A2C873162A783F05000FF483 /* Network */,
 				A2C873152A783EE8000FF483 /* ViewModels */,
@@ -502,7 +504,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SurfSpotMangerrz/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SurfSpotManagerrz;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -518,7 +522,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avelios.SurfSpotMangerrz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gerald.SurfSpotMangerrz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -543,7 +547,9 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SurfSpotMangerrz/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = SurfSpotManagerrz;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.sports";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -559,7 +565,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.avelios.SurfSpotMangerrz;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gerald.SurfSpotMangerrz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

@@ -118,10 +118,14 @@ struct SurfSpotPreview: View {
         .navigationTitle(surfSpot.name)
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button {
-                    toggleEdit()
-                } label: {
-                    Text("Edit")
+                if surfSpotViewModel.surfSpotUpdateLoading {
+                    ProgressView()
+                } else {
+                    Button {
+                        toggleEdit()
+                    } label: {
+                        Text("Edit")
+                    }
                 }
             }
         }
