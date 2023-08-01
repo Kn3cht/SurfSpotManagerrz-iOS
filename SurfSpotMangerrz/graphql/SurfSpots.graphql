@@ -3,12 +3,20 @@ fragment CoordinatesFragment on Coordinates {
     lon
 }
 
+fragment LocationFragment on Location {
+    name
+    address
+    coordinates {
+        ...CoordinatesFragment
+    }
+}
+
 fragment SurfSpotFragment on SurfSpot {
     _id
     name
     description
-    coordinates {
-       ...CoordinatesFragment
+    location {
+        ...LocationFragment
     }
 }
 

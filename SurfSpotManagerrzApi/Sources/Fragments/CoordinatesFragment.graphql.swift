@@ -14,10 +14,10 @@ public struct CoordinatesFragment: SurfSpotManagerrzApi.SelectionSet, Fragment {
   public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.Coordinates }
   public static var __selections: [ApolloAPI.Selection] { [
     .field("__typename", String.self),
-    .field("lat", Double?.self),
-    .field("lon", Double?.self),
+    .field("lat", Double.self),
+    .field("lon", Double.self),
   ] }
 
-  public var lat: Double? { __data["lat"] }
-  public var lon: Double? { __data["lon"] }
+  public var lat: Double { __data["lat"] }
+  public var lon: Double { __data["lon"] }
 }

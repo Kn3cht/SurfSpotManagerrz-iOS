@@ -26,11 +26,10 @@ struct SurfSpotList: View {
             if surfspotViewModel.surfSpotsLoading {
                 ProgressView()
             } else {
+                 
                 List {
                     ForEach(filteredSurfSpots, id: \._id) { surfSpot in
-                        NavigationLink {
-                            SurfSpotDetail(surfSpot: surfSpot)
-                        } label: {
+                        NavigationLink(value: surfSpot) {
                             VStack {
                                 HStack {
                                     HighlightedText(surfSpot.name, query: query)
@@ -38,6 +37,7 @@ struct SurfSpotList: View {
                                 }
                                 HStack {
                                     HighlightedText(surfSpot.description, query: query)
+                                        .lineLimit(1)
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                     Spacer()
@@ -46,12 +46,19 @@ struct SurfSpotList: View {
                         }
                     }
                 }
+                    
+                    .navigationDestination(for: SurfSpotFragment.self) { surfSpot in
+                        SurfSpotDetail(surfSpot: surfSpot)
+                            .environmentObject(surfspotViewModel)
+                    }
+                
             }
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 NavigationLink {
-                    Text("TODO")
+                    SurfSpotDetail(surfSpot: nil, editMode: true)
+                        .environmentObject(surfspotViewModel)
                 } label: {
                     Image(systemName: "plus")
                 }

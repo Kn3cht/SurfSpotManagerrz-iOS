@@ -11,8 +11,8 @@ public struct CoordinatesInput: InputObject {
   }
 
   public init(
-    lat: GraphQLNullable<Double> = nil,
-    lon: GraphQLNullable<Double> = nil
+    lat: Double,
+    lon: Double
   ) {
     __data = InputDict([
       "lat": lat,
@@ -20,12 +20,12 @@ public struct CoordinatesInput: InputObject {
     ])
   }
 
-  public var lat: GraphQLNullable<Double> {
+  public var lat: Double {
     get { __data["lat"] }
     set { __data["lat"] = newValue }
   }
 
-  public var lon: GraphQLNullable<Double> {
+  public var lon: Double {
     get { __data["lon"] }
     set { __data["lon"] = newValue }
   }

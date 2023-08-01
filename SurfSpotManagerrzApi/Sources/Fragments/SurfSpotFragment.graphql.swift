@@ -5,7 +5,7 @@
 
 public struct SurfSpotFragment: SurfSpotManagerrzApi.SelectionSet, Fragment {
   public static var fragmentDefinition: StaticString {
-    "fragment SurfSpotFragment on SurfSpot { __typename _id name description coordinates { __typename ...CoordinatesFragment } }"
+    "fragment SurfSpotFragment on SurfSpot { __typename _id name description location { __typename ...LocationFragment } }"
   }
 
   public let __data: DataDict
@@ -17,35 +17,56 @@ public struct SurfSpotFragment: SurfSpotManagerrzApi.SelectionSet, Fragment {
     .field("_id", SurfSpotManagerrzApi.ObjectId.self),
     .field("name", String.self),
     .field("description", String.self),
-    .field("coordinates", Coordinates.self),
+    .field("location", Location.self),
   ] }
 
   public var _id: SurfSpotManagerrzApi.ObjectId { __data["_id"] }
   public var name: String { __data["name"] }
   public var description: String { __data["description"] }
-  public var coordinates: Coordinates { __data["coordinates"] }
+  public var location: Location { __data["location"] }
 
-  /// Coordinates
+  /// Location
   ///
-  /// Parent Type: `Coordinates`
-  public struct Coordinates: SurfSpotManagerrzApi.SelectionSet {
+  /// Parent Type: `Location`
+  public struct Location: SurfSpotManagerrzApi.SelectionSet {
     public let __data: DataDict
     public init(_dataDict: DataDict) { __data = _dataDict }
 
-    public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.Coordinates }
+    public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.Location }
     public static var __selections: [ApolloAPI.Selection] { [
       .field("__typename", String.self),
-      .fragment(CoordinatesFragment.self),
+      .fragment(LocationFragment.self),
     ] }
 
-    public var lat: Double? { __data["lat"] }
-    public var lon: Double? { __data["lon"] }
+    public var name: String { __data["name"] }
+    public var address: String { __data["address"] }
+    public var coordinates: Coordinates { __data["coordinates"] }
 
     public struct Fragments: FragmentContainer {
       public let __data: DataDict
       public init(_dataDict: DataDict) { __data = _dataDict }
 
-      public var coordinatesFragment: CoordinatesFragment { _toFragment() }
+      public var locationFragment: LocationFragment { _toFragment() }
+    }
+
+    /// Location.Coordinates
+    ///
+    /// Parent Type: `Coordinates`
+    public struct Coordinates: SurfSpotManagerrzApi.SelectionSet {
+      public let __data: DataDict
+      public init(_dataDict: DataDict) { __data = _dataDict }
+
+      public static var __parentType: ApolloAPI.ParentType { SurfSpotManagerrzApi.Objects.Coordinates }
+
+      public var lat: Double { __data["lat"] }
+      public var lon: Double { __data["lon"] }
+
+      public struct Fragments: FragmentContainer {
+        public let __data: DataDict
+        public init(_dataDict: DataDict) { __data = _dataDict }
+
+        public var coordinatesFragment: CoordinatesFragment { _toFragment() }
+      }
     }
   }
 }

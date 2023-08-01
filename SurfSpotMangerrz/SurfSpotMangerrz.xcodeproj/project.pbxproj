@@ -26,13 +26,18 @@
 		A2C8731F2A783F8F000FF483 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A2C8731E2A783F8F000FF483 /* KeychainSwift */; };
 		A2C873262A784136000FF483 /* User.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A2C873252A784136000FF483 /* User.graphql */; };
 		A2C873282A7841B0000FF483 /* apollo-codegen-config.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C873272A7841B0000FF483 /* apollo-codegen-config.json */; };
-		A2C8732A2A7841C9000FF483 /* backend-schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A2C873292A7841C9000FF483 /* backend-schema.graphql */; };
 		A2C873352A784452000FF483 /* SurfSpotManagerrzApi in Frameworks */ = {isa = PBXBuildFile; productRef = A2C873342A784452000FF483 /* SurfSpotManagerrzApi */; };
 		A2C873372A7844B4000FF483 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873362A7844B4000FF483 /* AuthViewModel.swift */; };
 		A2C8733A2A7845B3000FF483 /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873392A7845B3000FF483 /* Authorization.swift */; };
 		A2C8733D2A7845FF000FF483 /* View+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8733C2A7845FF000FF483 /* View+Border.swift */; };
 		A2C8733F2A7854DB000FF483 /* SurfSpotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8733E2A7854DB000FF483 /* SurfSpotViewModel.swift */; };
 		A2C873422A7857AD000FF483 /* HighlightedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873412A7857AD000FF483 /* HighlightedText.swift */; };
+		A2C873442A78DBA9000FF483 /* AddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873432A78DBA9000FF483 /* AddressViewModel.swift */; };
+		A2C873462A78DEA1000FF483 /* AddressSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873452A78DEA1000FF483 /* AddressSelection.swift */; };
+		A2C873482A78E3A5000FF483 /* backend-schema.graphql in Resources */ = {isa = PBXBuildFile; fileRef = A2C873472A78E3A5000FF483 /* backend-schema.graphql */; };
+		A2C8734D2A78F01E000FF483 /* SurfSpotPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */; };
+		A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */; };
+		A2C873512A78FC81000FF483 /* LocationSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C873502A78FC81000FF483 /* LocationSummary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,19 +54,24 @@
 		A2C8730C2A783EB6000FF483 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		A2C8730F2A783EC4000FF483 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		A2C873112A783ED6000FF483 /* SurfSpotList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotList.swift; sourceTree = "<group>"; };
-		A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotDetail.swift; sourceTree = "<group>"; };
+		A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SurfSpotDetail.swift; path = ../SurfSpotDetail.swift; sourceTree = "<group>"; };
 		A2C873172A783F18000FF483 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		A2C873192A783F58000FF483 /* NetworkInterceptorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInterceptorProvider.swift; sourceTree = "<group>"; };
 		A2C8731B2A783F6E000FF483 /* AuthorizationInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInterceptor.swift; sourceTree = "<group>"; };
 		A2C873252A784136000FF483 /* User.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = User.graphql; sourceTree = "<group>"; };
 		A2C873272A7841B0000FF483 /* apollo-codegen-config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "apollo-codegen-config.json"; sourceTree = "<group>"; };
-		A2C873292A7841C9000FF483 /* backend-schema.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "backend-schema.graphql"; sourceTree = "<group>"; };
 		A2C873322A78444A000FF483 /* SurfSpotManagerrzApi */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SurfSpotManagerrzApi; path = ../SurfSpotManagerrzApi; sourceTree = "<group>"; };
 		A2C873362A7844B4000FF483 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		A2C873392A7845B3000FF483 /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		A2C8733C2A7845FF000FF483 /* View+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Border.swift"; sourceTree = "<group>"; };
 		A2C8733E2A7854DB000FF483 /* SurfSpotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotViewModel.swift; sourceTree = "<group>"; };
 		A2C873412A7857AD000FF483 /* HighlightedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightedText.swift; sourceTree = "<group>"; };
+		A2C873432A78DBA9000FF483 /* AddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewModel.swift; sourceTree = "<group>"; };
+		A2C873452A78DEA1000FF483 /* AddressSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelection.swift; sourceTree = "<group>"; };
+		A2C873472A78E3A5000FF483 /* backend-schema.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "backend-schema.graphql"; sourceTree = "<group>"; };
+		A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotPreview.swift; sourceTree = "<group>"; };
+		A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotEdit.swift; sourceTree = "<group>"; };
+		A2C873502A78FC81000FF483 /* LocationSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSummary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +91,8 @@
 		A2C872EA2A783DF2000FF483 = {
 			isa = PBXGroup;
 			children = (
+				A2C873472A78E3A5000FF483 /* backend-schema.graphql */,
 				A2C873312A78444A000FF483 /* Packages */,
-				A2C873292A7841C9000FF483 /* backend-schema.graphql */,
 				A2C873272A7841B0000FF483 /* apollo-codegen-config.json */,
 				A2C873242A784136000FF483 /* graphql */,
 				A2C872F52A783DF2000FF483 /* SurfSpotMangerrz */,
@@ -137,9 +147,8 @@
 		A2C8730B2A783EAB000FF483 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A2C873492A78F005000FF483 /* SurfSpots */,
 				A2C873382A7845A0000FF483 /* Authorization */,
-				A2C873112A783ED6000FF483 /* SurfSpotList.swift */,
-				A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -149,6 +158,7 @@
 			children = (
 				A2C873362A7844B4000FF483 /* AuthViewModel.swift */,
 				A2C8733E2A7854DB000FF483 /* SurfSpotViewModel.swift */,
+				A2C873432A78DBA9000FF483 /* AddressViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -210,8 +220,21 @@
 			isa = PBXGroup;
 			children = (
 				A2C873412A7857AD000FF483 /* HighlightedText.swift */,
+				A2C873452A78DEA1000FF483 /* AddressSelection.swift */,
+				A2C873502A78FC81000FF483 /* LocationSummary.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		A2C873492A78F005000FF483 /* SurfSpots */ = {
+			isa = PBXGroup;
+			children = (
+				A2C873132A783EDE000FF483 /* SurfSpotDetail.swift */,
+				A2C873112A783ED6000FF483 /* SurfSpotList.swift */,
+				A2C8734C2A78F01E000FF483 /* SurfSpotPreview.swift */,
+				A2C8734E2A78F04B000FF483 /* SurfSpotEdit.swift */,
+			);
+			path = SurfSpots;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,8 +305,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2C873262A784136000FF483 /* User.graphql in Resources */,
+				A2C873482A78E3A5000FF483 /* backend-schema.graphql in Resources */,
 				A2C872FF2A783DF3000FF483 /* Preview Assets.xcassets in Resources */,
-				A2C8732A2A7841C9000FF483 /* backend-schema.graphql in Resources */,
 				A2C873282A7841B0000FF483 /* apollo-codegen-config.json in Resources */,
 				A2C872FB2A783DF3000FF483 /* Assets.xcassets in Resources */,
 				494890A7E78C1B44A3776CE9 /* .graphqlconfig in Resources */,
@@ -301,11 +324,15 @@
 			files = (
 				A2C872F92A783DF2000FF483 /* ContentView.swift in Sources */,
 				A2C8733D2A7845FF000FF483 /* View+Border.swift in Sources */,
+				A2C8734D2A78F01E000FF483 /* SurfSpotPreview.swift in Sources */,
 				A2C872F72A783DF2000FF483 /* SurfSpotMangerrzApp.swift in Sources */,
+				A2C873462A78DEA1000FF483 /* AddressSelection.swift in Sources */,
 				A2C873142A783EDE000FF483 /* SurfSpotDetail.swift in Sources */,
+				A2C8734F2A78F04B000FF483 /* SurfSpotEdit.swift in Sources */,
 				A2C8733A2A7845B3000FF483 /* Authorization.swift in Sources */,
 				A2C8731A2A783F58000FF483 /* NetworkInterceptorProvider.swift in Sources */,
 				A2C8733F2A7854DB000FF483 /* SurfSpotViewModel.swift in Sources */,
+				A2C873442A78DBA9000FF483 /* AddressViewModel.swift in Sources */,
 				A2C873182A783F18000FF483 /* Network.swift in Sources */,
 				A2C873092A783E7A000FF483 /* Constants.swift in Sources */,
 				A2C873122A783ED6000FF483 /* SurfSpotList.swift in Sources */,
@@ -314,6 +341,7 @@
 				A2C8730D2A783EB6000FF483 /* Login.swift in Sources */,
 				A2C873422A7857AD000FF483 /* HighlightedText.swift in Sources */,
 				A2C8731C2A783F6E000FF483 /* AuthorizationInterceptor.swift in Sources */,
+				A2C873512A78FC81000FF483 /* LocationSummary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

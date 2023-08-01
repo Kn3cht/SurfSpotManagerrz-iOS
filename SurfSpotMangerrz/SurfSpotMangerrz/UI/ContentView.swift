@@ -12,7 +12,7 @@ struct ContentView: View {
     @StateObject var authViewModel = AuthViewModel()
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             Group {
                 switch authViewModel.authState {
                 case .authorized:

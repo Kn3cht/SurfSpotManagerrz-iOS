@@ -12,50 +12,44 @@ import MapKit
 
 struct SurfSpotDetail: View {
     
-    var surfSpot: SurfSpotFragment
+    @State var editMode: Bool
     
-    var annotations: [MapAnnotation] {
-        let coordinates = surfSpot.coordinates
-        return [MapAnnotation(name: surfSpot.name, coordinate: CLLocationCoordinate2D(latitude: coordinates.lat!, longitude: coordinates.lon!))]
-    }
+    @State var surfSpot: SurfSpotFragment?
     
-    @State private var region: MKCoordinateRegion
-    
-    init(surfSpot: SurfSpotFragment) {
+    init(surfSpot: SurfSpotFragment?, editMode: Bool = false) {
         self.surfSpot = surfSpot
-        let coordinates = surfSpot.coordinates
-        self._region = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: coordinates.lat!, longitude: coordinates.lon!), span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)))
+        self._editMode = State(initialValue: editMode)
     }
     
     var body: some View {
-        VStack(spacing: 20) {
-            HStack {
-                Text(surfSpot.description)
-                Spacer()
-            }
-            Map(coordinateRegion: $region, annotationItems: annotations) {
-                MapMarker(coordinate: $0.coordinate)
-            }
-            .frame(height: 300)
-            Spacer()
-        }
-        .padding()
-            .navigationTitle(surfSpot.name)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        
-                    } label: {
-                        Image(systemName: "pencil")
+        Group {
+            if !editMode {
+                if let surfSpot = surfSpot {
+                    SurfSpotPreview(surfSpot: surfSpot) {
+                        editMode.toggle()
                     }
+                } else {
+                    Text("Surfspot not present")
+                }
+            } else if let surfSpot = surfSpot {
+                let location = surfSpot.location
+                let coordinates = location.coordinates
+                SurfSpotEdit( _id: surfSpot._id, name: surfSpot.name, description: surfSpot.description, selectedAddressAnnotation: AnnotationItem(
+                    title: location.name,
+                    subtitle: location.address,
+                    latitude: coordinates.lat,
+                    longitude: coordinates.lon
+                )) { surfSpot in
+                    self.surfSpot = surfSpot
+                    editMode.toggle()
+                }
+            } else {
+                SurfSpotEdit() { surfSpot in
+                    self.surfSpot = surfSpot
+                    editMode.toggle()
                 }
             }
-    }
-    
-    struct MapAnnotation: Identifiable {
-        let id = UUID()
-        let name: String
-        let coordinate: CLLocationCoordinate2D
+        }
     }
 }
 
@@ -65,6 +59,7 @@ struct SurfSpotDetail_Previews: PreviewProvider {
         
         @StateObject var surfSpotViewModel = SurfSpotViewModel()
         
+        
         var body: some View {
             Group {
                 if let surfSpot = surfSpotViewModel.surfSpots.first {
@@ -73,9 +68,10 @@ struct SurfSpotDetail_Previews: PreviewProvider {
                     Text("No surf spots")
                 }
             }
-                .onAppear {
-                    surfSpotViewModel.listSurfSpots()
-                }
+            .environmentObject(surfSpotViewModel)
+            .onAppear {
+                surfSpotViewModel.listSurfSpots()
+            }
         }
     }
     

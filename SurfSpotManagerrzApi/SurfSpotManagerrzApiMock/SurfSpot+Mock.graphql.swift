@@ -11,8 +11,8 @@ public class SurfSpot: MockObject {
 
   public struct MockFields {
     @Field<SurfSpotManagerrzApi.ObjectId>("_id") public var _id
-    @Field<Coordinates>("coordinates") public var coordinates
     @Field<String>("description") public var description
+    @Field<Location>("location") public var location
     @Field<String>("name") public var name
   }
 }
@@ -20,14 +20,14 @@ public class SurfSpot: MockObject {
 public extension Mock where O == SurfSpot {
   convenience init(
     _id: SurfSpotManagerrzApi.ObjectId? = nil,
-    coordinates: Mock<Coordinates>? = nil,
     description: String? = nil,
+    location: Mock<Location>? = nil,
     name: String? = nil
   ) {
     self.init()
     _setScalar(_id, for: \._id)
-    _setEntity(coordinates, for: \.coordinates)
     _setScalar(description, for: \.description)
+    _setEntity(location, for: \.location)
     _setScalar(name, for: \.name)
   }
 }

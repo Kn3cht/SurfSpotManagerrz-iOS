@@ -17,7 +17,7 @@ class SurfSpotViewModel: ObservableObject {
     
     func listSurfSpots() {
         surfSpotsLoading = true
-        Network.shared.apollo.fetch(query: ListSurfSpotsQuery()) { [weak self] result in
+        Network.shared.apollo.fetch(query: ListSurfSpotsQuery(), cachePolicy: .fetchIgnoringCacheData) { [weak self] result in
             
             guard let self = self else { return }
             
@@ -38,13 +38,25 @@ class SurfSpotViewModel: ObservableObject {
         }
     }
     
-    func createOrUpdateSurfSpot(surfSpot: SurfSpotFragment) {
+    func createOrUpdateSurfSpot(_id: String?, name: String, description: String, annotationItem: AnnotationItem, completion: @escaping (SurfSpotFragment?) -> Void) {
         surfSpotUpdateLoading = true
-        Network.shared.apollo.perform(mutation: CreateOrUpdateSurfSpotMutation(surfSpot: .some(SurfSpotInput(
-            _id: surfSpot._id != nil ? .some(surfSpot._id) : .none,
-            name: surfSpot.name,
-            description: surfSpot.description,
-            coordinates: CoordinatesInput(lat: .some(surfSpot.coordinates.lat!), lon: .some(surfSpot.coordinates.lon!))))
+        
+        
+        let surfSpotInput = SurfSpotInput(
+            _id: _id != nil ? .some(_id!) : .none,
+            name: name,
+            description: description,
+            location: LocationInput(
+                name: annotationItem.title,
+                address: annotationItem.subtitle,
+                coordinates: CoordinatesInput(
+                    lat: annotationItem.latitude,
+                    lon: annotationItem.longitude
+                )
+            )
+        )
+        
+        Network.shared.apollo.perform(mutation: CreateOrUpdateSurfSpotMutation(surfSpot: .some(surfSpotInput)
         )) { [weak self] result in
             guard let self = self else {return}
             
@@ -52,17 +64,21 @@ class SurfSpotViewModel: ObservableObject {
             case.success(let gqlResult):
                 if let errors = gqlResult.errors {
                     print(errors)
+                    completion(nil)
                 } else if let surfSpotUpdate = gqlResult.data?.createOrUpdateSurfSpot?.fragments.surfSpotFragment {
-                    if self.surfSpots.contains(surfSpotUpdate) {
-                        self.surfSpots = self.surfSpots.map { $0._id != surfSpot._id ? $0 : surfSpot }
+                    if self.surfSpots.contains(where: { $0._id == surfSpotUpdate._id}) {
+                        self.surfSpots = self.surfSpots.map { $0._id != surfSpotUpdate._id ? $0 : surfSpotUpdate }
                     } else {
-                        self.surfSpots.append(surfSpot)
+                        self.surfSpots.append(surfSpotUpdate)
                     }
+                    completion(surfSpotUpdate)
                 } else {
                     print("failure")
+                    completion(nil)
                 }
             case .failure(let error):
                 print(error)
+                completion(nil)
             }
         }
     }

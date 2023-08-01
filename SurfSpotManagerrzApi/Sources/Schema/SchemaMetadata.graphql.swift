@@ -27,6 +27,7 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "Mutation": return SurfSpotManagerrzApi.Objects.Mutation
     case "CreateAccountResponse": return SurfSpotManagerrzApi.Objects.CreateAccountResponse
     case "SurfSpot": return SurfSpotManagerrzApi.Objects.SurfSpot
+    case "Location": return SurfSpotManagerrzApi.Objects.Location
     case "Coordinates": return SurfSpotManagerrzApi.Objects.Coordinates
     default: return nil
     }
